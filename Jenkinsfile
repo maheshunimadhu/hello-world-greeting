@@ -6,7 +6,7 @@ def mvnHome = tool name: 'maven3', type: 'maven'
 
 stage ('Build & Unit test'){
 	sh "${mvnHome}/bin/mvn clean verify -DskipITs-True";
-   junit '**/target/surefire-reports/Test-*.xml'
+   junit '**/target/surefire-reports/*.xml'
    archive 'target/*.jar'
 }
 
