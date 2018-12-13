@@ -3,7 +3,7 @@ stage ('Poll') {
    checkout scm
 }
 
-Stage ('Build & Unit test'){
+stage ('Build & Unit test'){
    sh 'mvn clean verify -DskipITs-True';
    junit '**/target/surefire-reports/Test-*.xml'
    archive 'target/*.jar'
@@ -21,7 +21,7 @@ stage ('Integration Test'){
 }
 
 stage ('Publish'){
-  def server = Artifactory.server 'Default Artifactory Server'
+  def server = Artifactory.server 'hema art'
   def uploadSpec = """{
     "files": [
       {
