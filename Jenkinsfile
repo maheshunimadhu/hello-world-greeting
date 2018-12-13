@@ -5,18 +5,18 @@ stage ('Poll') {
 def mvnHome = tool name: 'maven3', type: 'maven'
 
 stage ('Build & Unit test'){
-	sh '${mvnHome}/bin/mvn clean verify -DskipITs-True';
+	sh "${mvnHome}/bin/mvn clean verify -DskipITs-True";
    junit '**/target/surefire-reports/Test-*.xml'
    archive 'target/*.jar'
 }
 
 
 stage ('Static Code Analysis'){
-	sh '${mvnHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectName-example-project -Dsonar.projectkey-example-project -Dsonar.projectVersion=$BUILD_NUMBER';
+	sh "${mvnHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectName-example-project -Dsonar.projectkey-example-project -Dsonar.projectVersion=$BUILD_NUMBER";
 }
 
 stage ('Integration Test'){
-	sh '${mvnHome}/bin/mvn clean verify -Dsurefire.skip=true';
+	sh "${mvnHome}/bin/mvn clean verify -Dsurefire.skip=true";
   junit '**/target/failsafe-reports/Test-*.xml'
    archive 'target/*.jar'
 }
