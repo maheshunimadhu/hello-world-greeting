@@ -3,7 +3,7 @@ stage ('Poll') {
    checkout scm
 }
 mvnHome = tool 'maven3
-mvn = ${mvnHome}\bin\mvn
+mvn = ${mvnHome}/bin/mvn
 stage ('Build & Unit test'){
    sh 'mvn clean verify -DskipITs-True';
    junit '**/target/surefire-reports/Test-*.xml'
