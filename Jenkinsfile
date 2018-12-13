@@ -2,7 +2,7 @@ node {
 stage ('Poll') {
    checkout scm
 }
-def mvnHome = tool 'maven3'
+def mvnHome = tool name: 'maven3', type: 'maven'
 
 stage ('Build & Unit test'){
 	sh '${mvnHome}/bin/mvn clean verify -DskipITs-True';
