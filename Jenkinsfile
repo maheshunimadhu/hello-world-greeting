@@ -17,7 +17,7 @@ stage ('Static Code Analysis'){
 
 stage ('Integration Test'){
 	sh "${mvnHome}/bin/mvn clean verify -Dsurefire.skip=true";
-  junit '**/target/failsafe-reports/Test-*.xml'
+  junit '**/target/failsafe-reports/*.xml'
    archive 'target/*.jar'
 }
 
