@@ -12,7 +12,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sonar.language>java</sonar.language>
-    <sonar.host.url>localhost:4950</sonar.host.url>
+    <sonar.host.url>http://52.201.241.125:9000</sonar.host.url>
     <sonar.log.level>DEBUG</sonar.log.level>
     <sonar.verbose>true</sonar.verbose>
     <sonar.coverage.exclusions>**/*.js</sonar.coverage.exclusions>
